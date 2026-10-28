@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scientific Calculator BD</title>
+<meta name="description" content="Offline bilingual scientific calculator for Bangladesh. Hand-written parser, no eval, no network requests.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="shell">
+  <header class="top">
+    <div>
+      <h1 id="title">Scientific Calculator BD</h1>
+      <p id="subtitle" class="sub">Offline calculator &mdash; no internet needed</p>
+    </div>
+    <div class="topbtns">
+      <button id="angleBtn" type="button" title="Toggle degrees / radians">DEG</button>
+      <button id="langBtn" type="button">Bangla</button>
+    </div>
+  </header>
+
+  <section class="calc" aria-label="Calculator">
+    <label class="sr" for="expr">Expression</label>
+    <input id="expr" type="text" autocomplete="off" spellcheck="false"
+      placeholder="Type or tap an expression" aria-describedby="result">
+    <div class="resultrow">
+      <div id="result" class="result" aria-live="polite"></div>
+      <button id="copyBtn" type="button">Copy</button>
+    </div>
+    <div id="error" class="error" role="alert" hidden></div>
+
+    <div class="keys" id="keys">
+      <button type="button" data-ins="sin(">sin</button>
+      <button type="button" data-ins="cos(">cos</button>
+      <button type="button" data-ins="tan(">tan</button>
+      <button type="button" data-ins="pi">&pi;</button>
+      <button type="button" data-ins="e">e</button>
+
+      <button type="button" data-ins="asin(">sin&#8315;&#185;</button>
+      <button type="button" data-ins="acos(">cos&#8315;&#185;</button>
+      <button type="button" data-ins="atan(">tan&#8315;&#185;</button>
+      <button type="button" data-ins="log(">log</button>
+      <button type="button" data-ins="ln(">ln</button>
+
+      <button type="button" data-ins="sqrt(">sqrt</button>
+      <button type="button" data-ins="abs(">abs</button>
+      <button type="button" data-ins="(">(</button>
+      <button type="button" data-ins=")">)</button>
+      <button type="button" data-ins="^">^</button>
+
+      <button type="button" data-ins="7">7</button>
+      <button type="button" data-ins="8">8</button>
+      <button type="button" data-ins="9">9</button>
+      <button type="button" data-ins="/">/</button>
+      <button type="button" data-act="back">&larr;</button>
+
+      <button type="button" data-ins="4">4</button>
+      <button type="button" data-ins="5">5</button>
+      <button type="button" data-ins="6">6</button>
+      <button type="button" data-ins="*">x</button>
+      <button type="button" data-act="clear">C</button>
+
+      <button type="button" data-ins="1">1</button>
+      <button type="button" data-ins="2">2</button>
+      <button type="button" data-ins="3">3</button>
+      <button type="button" data-ins="-">&minus;</button>
+      <button type="button" data-ins="ans">Ans</button>
+
+      <button type="button" data-ins="0">0</button>
+      <button type="button" data-ins=".">.</button>
+      <button type="button" data-ins="%">%</button>
+      <button type="button" data-ins="+">+</button>
+      <button type="button" data-act="equals" class="equals">=</button>
+    </div>
+    <p class="hint" id="hint">Press Enter to calculate. Ans reuses the last result.</p>
+  </section>
+
+  <section class="history" aria-label="History">
+    <div class="histhead">
+      <h2 id="histTitle">History</h2>
+      <button id="clearHistBtn" type="button">Clear history</button>
+    </div>
+    <p id="emptyHist" class="empty">No calculations yet.</p>
+    <ul id="histList"></ul>
+  </section>
+
+  <footer>
+    <p id="footerNote">Fully offline &mdash; no network requests. Expressions are evaluated by a hand-written parser (no eval). Note: -x^2 means -(x^2).</p>
+  </footer>
+</main>
+<script src="js/logic.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
